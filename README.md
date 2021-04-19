@@ -118,5 +118,15 @@ The structure for each modell is identical:
 8. load_model: load model from file in folder **saved_models**
 9. predict_url: predict url by model
 
+## Score Fusion
 
+Contains the Decision Tree with structure explained above and fusion implementing majority vote and weighted majority vote.
+
+## Website Signature
+
+The file **signature_check** is an implementation that inherits the Classifier class by sklearn to implement own classifiers that are compatible with sklearn functions. The file contains the signature based filter.
+
+# Main.py
+
+The main file of the priject that starts first and calls all explained functionalitities.
 
