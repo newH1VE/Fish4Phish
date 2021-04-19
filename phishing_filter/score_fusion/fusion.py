@@ -10,8 +10,14 @@ from config.program_config import DATA_PATH, INFO, WARNING, ERROR
 from helper.logger import log
 
 
-
+# do majority fusion
 def majority(score_1, score_2, score_3):
+    """
+        :param score_1: score of lexical filter
+        :param score_2: score of content filter
+        :param score_3: score of signature filter
+        :return: score for final classification
+        """
 
     def majority_int(_score_1, _score_2, _score_3):
         result = _score_1 + _score_2 + _score_3
@@ -50,6 +56,7 @@ def majority(score_1, score_2, score_3):
         return majority_list(score_1, score_2, score_3)
 
 
+# do weighted maojority fusion
 def majority_weight(score_1, score_2, score_3, threshold=0.3):
     """
     :param score_1: score of lexical filter
@@ -102,6 +109,9 @@ def majority_weight(score_1, score_2, score_3, threshold=0.3):
 
 
 def get_f1(pred, labels):
+    """
+    compute f1 score for prediction (pred) and labels
+    """
 
     if len(pred) != len(labels):
         return None

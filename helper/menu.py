@@ -2,6 +2,9 @@
 # LOCAL LIBARIES
 from config import program_config as df
 
+"""
+This file contains all menus printed to navigate through different functioalities
+"""
 
 # print main menu
 def print_menu():
@@ -19,8 +22,7 @@ def print_filter():
     print("back           -->  back to main menu.")
     print("lexical        -->  print menu for machine learning for lexical filter.")
     print("content        -->  print menu for machine learning for content filter.")
-    print("identity       -->  print menu for website identity identification.")
-    print("score fusion   -->  print menu for score fusion.")
+
 
 
 # print database menu
@@ -87,31 +89,6 @@ def print_content_models():
     print("xgb      -->  print extreme gradient boosting menu.")
     print("ab       -->  print adaptive boosting menu.")
 
-
-# print menu for website identity identification
-def print_identity():
-    print("\n[+++ MENU FOR WEBSITE IDENTITY IDENTIFICATION +++]\n")
-    print("back    -->  back to main menu.")
-    print("dt      -->  print decision tree menu.")
-    print("rf      -->  print random forest menu.")
-    print("svm     -->  print support vector machine menu.")
-    print("lr      -->  print logistic regression menu.")
-    print("knn     -->  print k-nearest neighbor menu.")
-    print("xgb     -->  print extreme gradient boosting menu.")
-    print("ab      -->  print adaptive boosting menu.")
-
-
-# print menu for website identity identification
-def print_score_fusion():
-    print("\n[+++ MENU FOR SCORE FUSION +++]\n")
-    print("back    -->  back to main menu.")
-    print("dt      -->  print decision tree menu.")
-    print("rf      -->  print random forest menu.")
-    print("svm     -->  print support vector machine menu.")
-    print("lr      -->  print logistic regression menu.")
-    print("knn     -->  print k-nearest neighbor menu.")
-    print("xgb     -->  print extreme gradient boosting menu.")
-    print("ab      -->  print adaptive boosting menu.")
 
 # print config menu
 def print_config():

@@ -47,14 +47,13 @@ nlp_en = spacy.load("en_core_web_sm")
 translator_en = Translator(to_lang='en', from_lang='de')
 
 
-######## HELPERS ########
-# All helping methods for machine learning ml_lexical
-######## HELPERS ########
+"""
+All helping methods for feature extraction
+"""
+
 
 
 # return true if host contains ip, false if not
-
-
 def is_IP(host):
     ip_matcher = re.compile("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
 

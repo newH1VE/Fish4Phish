@@ -1,4 +1,4 @@
-# class for redirect entry
+# class for blacklist entry
 
 class BlacklistEntry:
     def __init__(self, domainname, not_after):

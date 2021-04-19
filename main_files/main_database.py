@@ -9,6 +9,9 @@ from helper.helper import get_input_to_lower
 from components import comp_database
 from helper import menu
 
+"""
+Code to translate commands to actions for component databse
+"""
 
 def run():
     back = False

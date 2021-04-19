@@ -14,8 +14,10 @@ MODULE_NAME="FEATURE SELECTION"
 def run(content, lexical):
 
     if lexical:
+        # select features from lexical database
         data = pd.read_csv(DATA_PATH + LEXICAL_FEATURE_DATABASE)
 
+        # drop every other column than 27 features with best MI value
         data = data.drop(["ID", "URL", "Final URL", "Has Shortening", "Number Comma", "Number Stars" , "Number Plus" ,
                           "Has HTTPS Token", "Has Javascript", "Has At Symbol", "Cert Restlive",
                           "Number PhishyTokens Netloc", "Number Underscore Netloc", "Has Fragment", "Number Tilde"
@@ -24,18 +26,18 @@ def run(content, lexical):
                           "Has Redirect", "Number Fragment Values", "Ratio Fragment/URL", "Cert Created Shortly",
                           "Number Semicolon", "Number Ampersand"], axis=1)
 
-        result = do_greedy_search(data_set=data, lexical=lexical)
+        do_greedy_search(data_set=data)
 
     if content:
+        # select features from content database
         data = pd.read_csv(DATA_PATH + CONTENT_FEATURE_DATABASE)
 
+        # drop every other column than 27 features with best MI value
         data = data.drop(["ID", "URL", "Final URL", "Number Checkbox", "Number Select", "Number OL", "Number TR",
                         "Number TH", "Number Article", "Number Table", "Has Form with POST", "Has Extern Action", "Has Input for Login",
                         "Has PopUp", "Has Favicon", "Has Custom StatusBar", "Has Disabled RightClick"], axis=1)
-        print(data.columns)
-        result = do_greedy_search(data_set=data, content=content)
 
-
+        do_greedy_search(data_set=data)
 
     # module complete
     log_module_complete(MODULE_NAME=MODULE_NAME)

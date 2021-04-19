@@ -1,4 +1,8 @@
 
+
+
+# entry containing all features for lexical filter
+
 class FeatureEntryLexical:
 
     def __init__(self, bool_ip_netloc, int_length_url, bool_redirect_url, bool_at_symbol_netloc, bool_prefix_suffix_netloc, bool_subdomain_netloc,int_subdomain_netloc, bool_https_protocol_netloc,

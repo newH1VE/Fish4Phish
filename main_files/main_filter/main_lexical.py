@@ -11,6 +11,11 @@ from helper.logger import log
 from phishing_filter.ml_lexical import dt, rf, svm, lr, knn, ab, xgb
 
 
+"""
+Main file for lexical based filter
+commands on console are translated to the functionality
+"""
+
 def run():
 
     back = False

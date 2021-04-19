@@ -42,6 +42,13 @@ failed = 0
 
 
 def extract_features_from_URL_list(data, predict=False, threads=50):
+    """
+    extract url features from list using multiple threads
+    threads: number of threads
+    data: list containing urls and label
+    predict: extract from list for prediction (set label to: PREDICT)
+    """
+
     df = pd.DataFrame()
 
     feature_list = []
@@ -120,6 +127,10 @@ def extract_features_from_URL_list(data, predict=False, threads=50):
 
 
 def extract_features_from_URL(url, label="", predict=False):
+    """
+    extract all features from url, if predict set to true a pandas dataframe is created
+    """
+
     # get components netloc, filepath, query, path, Subdomain, SLD (domainname), TLD (incl. ccTLD)
     df = pd.DataFrame()
 
@@ -561,6 +572,10 @@ def extract_features_from_URL(url, label="", predict=False):
 
 
 def extract_features_from_website_list(data):
+    """
+    extract all content based features from list with urls
+    """
+
     threads = 80
     feature_list = []
 
@@ -617,6 +632,10 @@ def extract_features_from_website_list(data):
 
 
 def extract_features_from_website(url, label, predict):
+    """
+        extract all features from website, if predict set to true a pandas dataframe is created
+    """
+
     try:
         global brand_list
         global phishy_list
@@ -1172,6 +1191,10 @@ def extract_features_from_website(url, label, predict):
 
 
 def extract_features_from_website_list_ray(data):
+    """
+        extract all features from website list, ray used for parallelism
+    """
+
     @ray.remote
     def get_feature_entry(entry):
 
@@ -1197,6 +1220,10 @@ def extract_features_from_website_list_ray(data):
 
 
 def extract_features_from_signature_list(data):
+    """
+        extract all signature features from list with urls and labels
+    """
+
     @ray.remote
     def get_feature_entry(entry):
 
@@ -1222,6 +1249,10 @@ def extract_features_from_signature_list(data):
 
 
 def extract_features_from_signature(url, label):
+    """
+        extract all signature features from url
+    """
+
     common_ents = []
     common_terms = []
     cert_subject = ""

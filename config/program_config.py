@@ -5,6 +5,9 @@ import os
 # LOCAL LIBARIES
 from definitions.enum_def.logging import logging_enum
 
+"""
+This file contains all relevant definitions for paths, files and parameters for logging
+"""
 
 # read database files and combine into one database on system start
 DATABASE_ON_START = False
@@ -60,7 +63,7 @@ BRAND_FILE="brands.xml"
 LOGIN_WORDS_FILE="loginwords.xml"
 
 # search engine keys
-BING_SEARCH_KEY="d55ac3d94d3545128919f3a0c40c7e3b"
+BING_SEARCH_KEY="______"
 
 # define time format for log actions
 LOGGING_TIME_FORMAT = "[%d/%m/%Y %H:%M:%S]"

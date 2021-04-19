@@ -8,6 +8,11 @@ file = CONFIG_FILE
 config = ConfigParser()
 config.read(file)
 
+"""
+This configuration creates/modifies the fish4phish.ini in DATA_PATH
+new configurations can be saved and older ones modified
+"""
+
 def get_element(section, element):
     return str(config[section][element])
 

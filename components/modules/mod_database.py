@@ -26,9 +26,22 @@ from definitions.classes import entry
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"}
 
+"""
+This module contains all functions needed to work with the database files.
+"""
+
+
 # extract zip file
 def extract_from_Zip(compressed_name, target_dir, new_name=None):
+    """
+    compressed_name: name of zip file
+    target_dir: directory where the file has to be extracted
+    new_name: new file name for extracted file
+    """
+
     PATH = ""
+
+    # check if file and path exists
     if not os.path.isfile(DATA_PATH + compressed_name):
         log(action_logging_enum=WARNING,
             logging_text="File [{f}] does not exist.[IN OPEN]".format(f=compressed_name))
@@ -47,6 +60,7 @@ def extract_from_Zip(compressed_name, target_dir, new_name=None):
 
     filename = ""
 
+    # extract file
     if not new_name == None:
         zipdata = zipfile.ZipFile(PATH + compressed_name)
         zipinfos = zipdata.infolist()
@@ -58,12 +72,16 @@ def extract_from_Zip(compressed_name, target_dir, new_name=None):
 
         os.rename(target_dir + filename, target_dir + new_name)
         log(action_logging_enum=INFO, logging_text=str(
-            "Extraction complete from file {c} into directory {u}.".format(c=compressed_name,
-                                                                                                      u=str(
-                                                                                                          target_dir + new_name))))
+            "Extraction complete from file {c} into directory {u}.".format(c=compressed_name,u=str(target_dir + new_name))))
         return
 
 def crawl_list_login_page(data, selenium_analysis=False, number_threads=10):
+    """
+    search for login pages of data set using bing and beautiful soups
+    data: data set
+    selenium_analysis: include selenium for search
+    number_threads: number of threads for parallelism
+    """
 
     threads = number_threads
     modified_list = []
@@ -74,6 +92,7 @@ def crawl_list_login_page(data, selenium_analysis=False, number_threads=10):
     # initialize token list and count, size for overview prints
     login_token_list = get_phishy_login_brand_list(login=True)
 
+    # search login page
     def get_login():
         while True:
             url = q.get()
@@ -81,7 +100,7 @@ def crawl_list_login_page(data, selenium_analysis=False, number_threads=10):
             modify_list(url, changed_status)
             q.task_done()
 
-
+    # append to list for new page
     def modify_list(url, changed_status):
         nonlocal count
         nonlocal changed
@@ -104,6 +123,7 @@ def crawl_list_login_page(data, selenium_analysis=False, number_threads=10):
         return
 
 
+    # do search for every thread
     try:
         q = Queue(threads * 2)
         for i in range(threads):
@@ -122,6 +142,11 @@ def crawl_list_login_page(data, selenium_analysis=False, number_threads=10):
 
 
 def check_status_of_website(data):
+    """
+    check if websites in data set can be reached (are up)
+    data: set set with urls
+    """
+
     threads = 50
     modified_list = []
 
@@ -130,7 +155,7 @@ def check_status_of_website(data):
     complete = 0
     failed = 0
 
-
+    # check status for one page
     def check_status():
 
         nonlocal complete
@@ -160,6 +185,7 @@ def check_status_of_website(data):
 
             q.task_done()
 
+    # append entry to new list if up
     def modify_list(entry):
         nonlocal modified_list
 
@@ -167,6 +193,7 @@ def check_status_of_website(data):
 
         return
 
+    # check status using 50 threads
     try:
         q = Queue(threads * 2)
         for i in range(threads):
@@ -181,13 +208,11 @@ def check_status_of_website(data):
         log(action_logging_enum=ERROR, logging_text="Process interrupted by keyboard signal. Returning the list.")
 
     size_after = len(modified_list)
-
     log(action_logging_enum=INFO, logging_text="{} websites of {} could be reached.".format(size_after, size_before))
 
     return modified_list
 
 
-# brand domainname list by alexa database
 def create_brand_list_by_alexa():
     alexa_list = open_dataset_XML_file(filename=ALEXA_FILE, iterateable="entry", label="Benign", url_label="url", label_label="label")
 
@@ -212,8 +237,13 @@ def create_brand_list_by_alexa():
 
 
 
-# download xml and save by filename
 def download_file(url, filename):
+    """
+    download database file from url and save by filename
+    url: url where data has to be downloaded
+    filename: filename for data to be saved
+    """
+
     response = requests.get(url, timeout=10, headers=headers)
     with open(DATA_PATH + filename, 'wb') as file:
         file.write(response.content)
@@ -223,6 +253,10 @@ def download_file(url, filename):
 
 # mix lists randomly by inserting entries of list1 into list2 with random indicies
 def mix_lists_randomly(list1, list2):
+    """
+    mix entries of list1 and list2 randomly
+    """
+
     if list1 == None or list2 == None:
         log(action_logging_enum=WARNING, logging_text="At least one list was empty.")
         return None
@@ -238,8 +272,14 @@ def mix_lists_randomly(list1, list2):
     return list2
 
 
-# write a list to a xml file
 def write_list_to_XML(filename, root, list1):
+    """
+    write list as xml file
+    filename: name to be saved
+    root: root object for xml
+    list1: list with data (url, label)
+    """
+
     root = et.Element(root)
     tree = et.ElementTree(root)
 
@@ -255,8 +295,17 @@ def write_list_to_XML(filename, root, list1):
         logging_text="Write process to XML finished for [{f}].".format(f=filename))
 
 
-# open XML file and iterate through certain tag
 def open_dataset_XML_file(filename, iterateable, label=None, url_label="url", label_label=None, max_line_count=-1):
+    """
+    open xml file and write to list
+    filename: xml filename
+    iterateable: node containing data
+    label: label for all data
+    url_label: url specifier in xml data
+    label_label: label specifiert in xml data
+    max_line_count: maximum entries to be written to list
+    """
+
     PATH = ""
     if not os.path.isfile(DATA_PATH + filename):
         log(action_logging_enum=WARNING,
@@ -290,15 +339,21 @@ def open_dataset_XML_file(filename, iterateable, label=None, url_label="url", la
 
         index += 1
 
-
-
     log(action_logging_enum=INFO,
         logging_text="XML File filled in list. FILE: [{f}].".format(f=filename))
     return datalist
 
 
-# open csv file and return content in list
 def open_dataset_CSV_file(filename, pos_url, label="", pos_label=-1, max_line_count=-1, pass_first_line=True):
+    """
+    open csv data as list
+    filename: csv filename
+    pos_url: column number of url
+    label: set label for all data
+    pos_label: column number of labels
+    max_line_count: maximum entries to be filled to list
+    """
+
     datalist = []
     PATH = ""
 
@@ -349,6 +404,10 @@ def open_dataset_CSV_file(filename, pos_url, label="", pos_label=-1, max_line_co
 
 # move file from data file to backup folder for downloaded files
 def move_file(filename, dst_folder="", src_folder=""):
+    """
+    move file with filename from src_folder to dst_folder
+    """
+
     dst_path = ROOT_DIR + dst_folder + filename if not (dst_folder == "") else DATA_BACKUP_PATH + filename
     src_path = ROOT_DIR + src_folder + filename if not (src_folder == "") else DATA_PATH + filename
 
@@ -365,8 +424,10 @@ def move_file(filename, dst_folder="", src_folder=""):
         logging_text="File moved from [{s}] to [{d}].".format(s=src_path, d=dst_path))
 
 
-# delete file in DATA_PATH
 def delete_data(filename):
+    """
+    delete file for param filename in data_path
+    """
     if os.path.isfile(DATA_PATH + filename):
         os.remove(DATA_PATH + filename)
         log(action_logging_enum=INFO,
@@ -378,6 +439,10 @@ def delete_data(filename):
 
 # write all features in one file
 def write_lexical_features_CSV(feature_list):
+    """
+    write features for lexical filter to csv
+    """
+
     file_name = LEXICAL_FEATURE_DATABASE
     with open(DATA_PATH + file_name, 'w') as file:
         writer = csv.writer(file, delimiter=',')
@@ -407,26 +472,31 @@ def write_lexical_features_CSV(feature_list):
 
 # split all feature databases to validation set (3.000 entries) and training set (12.000 entries)
 def generate_validation_sets():
+    """
+    combine the threee datasets of each filter into one
+    """
+
+    # read data
     lexical = pd.read_csv(DATA_PATH + LEXICAL_FEATURE_DATABASE)
     content = pd.read_csv(DATA_PATH + CONTENT_FEATURE_DATABASE)
     signature = pd.read_csv(DATA_PATH + SIGNATURE_FEATURE_DATABASE)
 
+    # get url column to list
     url_lexical = lexical["URL"].tolist()
     url_content = content["URL"].tolist()
     url_signature = signature["URL"].tolist()
 
-    url_lex = lexical["URL"].tolist()
-    url_con = content["URL"].tolist()
-    url_sign = signature["URL"].tolist()
-
+    # initialize indicies to be droped
     drop_lex = []
     drop_con = []
     drop_sign = []
 
+    # initialize dataframes to be saved
     df_lex = pd.DataFrame(columns=LEXICAL_FEATURE_LIST_COLUMN_NAMES)
     df_con = pd.DataFrame(columns=CONTENT_FEATURE_LIST_COLUMN_NAMES)
     df_sign = pd.DataFrame(columns=SIGNATURE_FEATURE_LIST_COLUMN_NAMES)
 
+    # preprocessing of urls (remove spaces)
     for i in range(len(url_content)):
         url_content[i] = url_content[i].strip()
 
@@ -438,6 +508,7 @@ def generate_validation_sets():
 
     processed = 0
 
+    # search feature for url from each dataset and combine to one
     for i in range(len(url_lexical)):
         url = url_lexical[i]
 
@@ -510,6 +581,9 @@ def generate_validation_sets():
 
 # write all features in one file
 def write_content_features_CSV(feature_list, file_name="", append=False, new_index=1):
+    """
+    write features for content filter to csv
+    """
 
     if not file_name:
         file_name = CONTENT_FEATURE_DATABASE
@@ -560,6 +634,9 @@ def write_content_features_CSV(feature_list, file_name="", append=False, new_ind
 
 # write all features in one file
 def write_signature_features_CSV(feature_list, file_name=""):
+    """
+    write features for signature filter to csv
+    """
 
     if not file_name:
         file_name = SIGNATURE_FEATURE_DATABASE
@@ -635,8 +712,11 @@ def get_phishy_login_brand_list(phishy=False, brand=False, login=False):
     return data_list
 
 
-# get list of all TLD by IANA or by backup
 def get_TLD_list():
+    """
+    get list containing valid TLDs by IANA
+    """
+
     tld_list = []
     line = ""
 

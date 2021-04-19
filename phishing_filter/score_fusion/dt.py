@@ -58,7 +58,7 @@ def train_model(data=pd.DataFrame()):
     
     log(action_logging_enum=INFO, logging_text="[DECISION TREE]: Starting training.")
     # create classifier with specifications
-    decision_tree = tree.DecisionTreeClassifier()#params)
+    decision_tree = tree.DecisionTreeClassifier()
     f1 = print_scores(decision_tree, x, y)
     decision_tree.fit(x_train, y_train)
     save_model(decision_tree=decision_tree)

@@ -10,6 +10,10 @@ from helper.helper import get_input_to_lower
 from helper.logger import log
 from phishing_filter.ml_content import dt, rf, svm, lr, knn, ab, xgb
 
+"""
+Main file for content based filter
+commands on console are trnaslated to the functionality
+"""
 
 def run():
     back = False

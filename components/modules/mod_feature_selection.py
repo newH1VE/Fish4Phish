@@ -20,44 +20,47 @@ from helper.logger import log
 
 
 # LOCAL LIBARIES
-def do_greedy_search(data_set, threshold=None, lexical=False, content=False):
+def do_greedy_search(data_set):
+    """
+    search for best selection using NECGT in data_set
+    data_set: data containing all features
+    """
 
+    # get first 500 entries of data and seperate features from label
     data_set = pd.DataFrame(data_set)
     data_set = data_set.iloc[:500, :]
     y = data_set["Label"]
     x = pd.DataFrame(data_set.drop(["Label"], axis=1))
 
-    number_of_features = len(x.columns)
-
+    # initialize config to save results in case of errors
     conf.add_element("Feature Selection", "Banzhaf Lexical", "")
 
+    # get banzhaf value for all features
     banzhaf = get_banzhaf_vector(x, y)
     discrete = []
 
+    # get indicies of categorical columns for MI
     for col in x.columns:
         if x[col].dtype == np.bool:
             discrete.append(x.columns.get_loc(col))
 
-    num = 0  # num
-
-    if threshold == None:
-        threshold = num
-
+    # get MI value for all features in dataset
     mi = pd.Series(mutual_info_classif(x, y, discrete_features=discrete))
     mi = mi.values.tolist()
 
     for i in range(len(mi)):
         mi[i] = [i, mi[i]]
 
-    sumb = 0
     results = []
 
+    # multiply banzhaf and MI value to get NECGT value
     for i in range(len(mi)):
         results.append([mi[i][0], (banzhaf[i] * mi[i][1])])
 
     results = results.sort(key=operator.itemgetter(1), reverse=True)
     log(INFO, "Feature selection completed.")
 
+    # print results
     for i in range(len(results)):
         print()
         print(x.iloc[:, results[i][0]].name)
@@ -72,6 +75,8 @@ def do_greedy_search(data_set, threshold=None, lexical=False, content=False):
 
 def get_banzhaf_vector(x, y):
     banzhaf = []
+
+    # set max coalitions to 3 or sqrt for example
     # max_coalition = int(math.floor(math.sqrt(len(x.columns))))
     max_coalition = 3
     column_ids = list(range(0, len(x.columns)))
@@ -81,6 +86,7 @@ def get_banzhaf_vector(x, y):
     log(INFO, "Starting for Banzhaf.")
 
     def get_feature_contribution_subset(feature_, y_, coalition_, coal_size):
+        # get contribution to coalition for feature_ (delta for feature i and coalition K_i)
 
         mutual_information = neighbor_mutual_information_coalition(coalition_, y_, feature_)
 
@@ -89,7 +95,9 @@ def get_banzhaf_vector(x, y):
             return 0
 
         log(INFO, "Contribution bigger than 0.")
-        # NMI(C_j ; Y | C_i) > NMI(C_j ; Y)
+
+        # check for all features S in coalition and feature_ R -> NMI(S ; D | R) > NMI(S ; D)
+
         related = 0
         is_related = False
         for i in range(coal_size):
@@ -132,6 +140,7 @@ def get_banzhaf_vector(x, y):
             return ne_cj + ne_y - ne_cj_y
 
     def neighborhood_entropy(r, s=None, union=False):
+        # get neighborhood entropy for subsets R and S or UNION of R and S
 
         feature_set = r
         sum_list = []
@@ -139,10 +148,8 @@ def get_banzhaf_vector(x, y):
         if union:
             feature_set = pd.concat([feature_set, s], axis=1)
 
-
         n = len(feature_set)
 
-        #@ray.remote
         def do_get(i_):
             g_e = get_neighborhood(feature_set, i_, size_row, distance, feature_vec)
             return math.log((g_e / n), 2)
@@ -151,7 +158,6 @@ def get_banzhaf_vector(x, y):
             feature_vec = feature_set.values.tolist()
             size_row = len(feature_set)
             distance = 0.15
-            result_ids = []
             for i in range(n):
                 sum_list.append(do_get(i))
 
@@ -169,6 +175,8 @@ def get_banzhaf_vector(x, y):
 
 
     def get_neighborhood(feature_set, i, size_row, distance, feature_vec):
+        # get neighborhood for x_i
+
         x_i = feature_vec[i]
 
         # if single column
@@ -211,6 +219,7 @@ def get_banzhaf_vector(x, y):
 
 
 
+    # do parallelism for each possible coalition <= 3
     @ray.remote
     def do_get(i_, y, x, combinations, feature, c, lene):
 

@@ -9,6 +9,10 @@ from helper.helper import get_input_to_lower
 from components import comp_feature_extraction, comp_feature_selection
 from helper import menu
 
+"""
+This file has the functionality to start feature extraction/selection from
+commands on console
+"""
 
 def run():
 

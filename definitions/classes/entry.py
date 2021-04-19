@@ -1,4 +1,6 @@
 
+# standard entry containing a url and coresponding label
+
 class Entry:
     def __init__(self, label, url):
         self.url = url

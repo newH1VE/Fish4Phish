@@ -8,9 +8,14 @@ from phishing_filter.ml_content import rf as con_rf
 from phishing_filter.website_signature.signature_check import SignaturClassifier
 from components.modules.mod_feature_extraction import extract_features_from_signature
 from phishing_filter.score_fusion import dt
+from definitions.classes import blacklist_entry
+from datetime import datetime, date, timedelta
 
 
 def predict_url(url):
+    """
+    predict url using the multifilter approach with two random forests and decision tree for score fusion
+    """
 
     log(INFO, "Starting analysing URL using the multi filter approach. [{}]".format(url))
 
@@ -40,13 +45,20 @@ def predict_url(url):
     }
 
     columns = ["Score 1", "Score 2", "Score 3"]
-
     fusion_df = pd.Dataframe(scores, columns=columns)
-    final_classification = dt.predict(fusion_df)
-    classif_str = "Phishing"
 
-    if final_classification == 0:
-        classif_str = "Benign"
+    # get final classification by random forest
+    final_classification = dt.predict(fusion_df)
+    classif_str = "Benign"
+
+    if final_classification == 1:
+        classif_str = "Phishing"
+
+        # add to blacklist
+        today = date.today().strftime("%d/%m/%Y")
+        not_after = datetime.strptime(today, "%d/%m/%Y") + timedelta(days=5)
+        not_after_str = not_after.strftime("%d/%m/%Y")
+        bl.add_entry(blacklist_entry.BlacklistEntry(domainname=domainname, not_after=not_after_str))
 
 
     log("INFO", "Final classification: {}".format(classif_str))

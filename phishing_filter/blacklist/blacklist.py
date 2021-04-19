@@ -12,8 +12,14 @@ from helper.logger import log
 from config import configuration as conf
 
 
+"""
+This file contains all actions for blacklist
+"""
+
+
 last_updated = None
 
+# create connections to database file -> if not existent create new
 def create_connection():
     global last_updated
 
@@ -50,7 +56,7 @@ def create_connection():
 
     return conn
 
-
+# create table blacklist
 def create_table(conn):
     c = conn.cursor()
     c.execute('''CREATE TABLE blacklist(domainname text, not_after text)''')
@@ -58,7 +64,7 @@ def create_table(conn):
     log(INFO, "Table 'blacklist' created in sqlite database.")
     return
 
-
+# add entry to blacklist
 def add_entry(entry: BlacklistEntry):
     conn = create_connection()
     c = conn.cursor()
@@ -84,20 +90,21 @@ def add_entry(entry: BlacklistEntry):
 
     return
 
-
+# check for entries who's not after date is passed and delete them
 def update_db(conn, last_updated_date, today):
     delta = today - last_updated_date
 
     for i in range(delta.days + 1):
         c = conn.cursor()
         day = last_updated_date + timedelta(days=i)
-        execs = c.execute(''' DELETE from blacklist WHERE not_after=? ''', (day,))
+        day_str = day.strftime("%d/%m/%Y")
+        execs = c.execute(''' DELETE from blacklist WHERE not_after=? ''', (day_str,))
         conn.commit()
         log(INFO, "Database updated. Deleted records: {}".format(execs.rowcount))
 
     return
 
-
+# check if blacklist contains domainname
 def check_for_entry(domainname):
     conn = create_connection()
     c = conn.cursor()

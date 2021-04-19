@@ -2,6 +2,7 @@
 # STANDARD LIBARIES
 import enum
 
+# differnet types of logging
 
 class logging_enum(enum.Enum):
     INFO=0

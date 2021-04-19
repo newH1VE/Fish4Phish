@@ -20,30 +20,33 @@ def run(content=False, lexical=False, signature=False, val_sets=False):
     content_feature_list = []
     lexical_feature_list = []
 
+    # generate validation sets of all three databases
     if val_sets:
         generate_validation_sets()
         return
 
-    # open data file and write to list
+
+    # open data file and write to list (created in component database)
     data_list = open_dataset_XML_file(filename=DATABASE, iterateable="entry", label_label="label", url_label="url")
 
     if data_list == None:
         log(action_logging_enum=WARNING, logging_text="[MODULE FEATURE EXTRACTION]: CSV File [data.csv] was not found. returning ...")
         return
 
-    # remove https:// http://
-    #data_list = remove_chars_from_list(data_list)
-    #log(action_logging_enum=INFO, logging_text="[MODULE FEATURE EXTRACTION]: https:// and http:// from all urls removed.")
 
     # binarize labels
     data_list = binarize_labels(data_list)
     log(action_logging_enum=INFO, logging_text="[MODULE FEATURE EXTRACTION]: Labels binarized")
 
-    # create feature_list with FeatureEntries
+    # create feature_list with FeatureEntries for all urls in list
     if lexical:
+        # create lexical feauture list
         lexical_feature_list = f.extract_features_from_URL_list(data=data_list)
 
     if content:
+        # extract content based features using ray
+        # list is saved for each 1000 entries since the extraction lasts about 2 hours
+
         process = True
         index = 6000
         append = False
@@ -56,7 +59,6 @@ def run(content=False, lexical=False, signature=False, val_sets=False):
         while process:
 
             end_index = index + 1000
-
 
             if end_index >= len(data_list):
                 end_index = len(data_list) - 1
@@ -84,6 +86,8 @@ def run(content=False, lexical=False, signature=False, val_sets=False):
         ray.shutdown()
 
     if signature:
+        # extract features for signature based filter
+
         ray.init(num_cpus=6)
         signature_feature_list = f.extract_features_from_signature_list(data=data_list)
         ray.shutdown()

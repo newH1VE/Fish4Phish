@@ -1,4 +1,9 @@
-# class for redirect entry
+
+
+"""
+ class for signature entry containing the url, most frequent terms and entities
+ as well as certificate subject
+"""
 
 class SignatureEntry:
     def __init__(self, url, label, final_url, cert_subject, ent1, ent2, ent3, ent4,ent5, term1, term2, term3, term4,term5):

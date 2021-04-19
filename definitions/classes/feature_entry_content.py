@@ -1,4 +1,8 @@
 
+
+# entry containing all features for content filter
+
+
 class FeatureEntryContent:
 
     def __init__(self, bool_redirect_website, bool_favicon_website, bool_content_extern_website, int_links_extern_website, bool_custom_statusbar_website,

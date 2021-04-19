@@ -13,6 +13,7 @@ from config.program_config import WARNING, DATABASE_ON_START
 from helper.helper import get_input_to_lower
 from components import comp_database
 from helper import menu
+from final_approach.predict_url import predict_url
 
 
 # EXIT VARIABLE DEFINITION
@@ -44,6 +45,11 @@ while EXIT == False:
         main_config.run()
         continue
 
+    # print configuration menu
+    if prompt.startswith("predict"):
+        url = prompt.split("predict")[1]
+        predict_url(url)
+        continue
 
     # print feature menu
     if prompt.strip() == "features":
@@ -74,14 +80,6 @@ while EXIT == False:
 
             if prompt.strip() == "content":
                 main_content.run()
-                continue
-
-            if prompt.strip() == "identity":
-                main_signature.run()
-                continue
-
-            if prompt.strip() == "score fusion":
-                main_score_fusion.run()
                 continue
 
             if prompt.strip() != "": log(action_logging_enum=WARNING, logging_text="NO COMMAND DETECTED")

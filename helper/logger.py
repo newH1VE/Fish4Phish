@@ -8,6 +8,10 @@ from config.program_config import LOGGING_PATH, LOGGING_TIME_FORMAT, LOGGING_FIL
     LOGGING_PERIOD
 from definitions.classes.logcolor import LogColors
 
+"""
+This logger logs all system actions 
+actions are written to file in /log path and displayed in console
+"""
 
 # define procedure for logging_enum
 def log(action_logging_enum, logging_text, run_start=False, MODULE_NAME=None, run_complete=False):

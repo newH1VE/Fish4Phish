@@ -11,7 +11,7 @@ from config.program_config import WARNING, INFO, ERROR, BING_SEARCH_KEY
 from helper.logger import log
 
 
-
+# search terms in bing, num_res defines maximum nunber of results de be returned
 def search(term, wait_after_429=True, num_res=10):
 
     def fetch_results(headers, params):
