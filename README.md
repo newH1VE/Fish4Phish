@@ -29,7 +29,13 @@ The most important directory. It contains the code to analyze a url using the mu
 
 Typ in the displayed command to go further in menu structure or predict a url with the final multi filter approach (98%) accuracy.
 
-##Example:
+[SYSTEM] | [INFO]  | [15/04/2021 15:02:25] | [Function get_f1] Precision: 0.982420554428668
+
+[SYSTEM] | [INFO]  | [15/04/2021 15:02:25] | [Function get_f1] Recall: 0.9764784946236559
+
+[SYSTEM] | [INFO]  | [15/04/2021 15:02:25] | [Function get_f1] F1: 0.9794405123019886
+
+## Example:
 
 Type in a command:
 >> predict https://github.com/newH1VE/Fish4Phish/edit/main/README.md
@@ -95,6 +101,10 @@ outsourced code of main.py to make the main file slightly smaller. The main file
 # Phishing Filters
 
 This directory contains all files for the filters. 
+
+## Single Filter
+
+Tested single filter approach.
 
 ## Blacklist
 
