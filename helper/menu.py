@@ -9,12 +9,13 @@ This file contains all menus printed to navigate through different functioalitie
 # print main menu
 def print_menu():
     print("\n[+++ MENU FOR COMMANDS +++]\n")
-    print("database     -->  print menu for database creation.")
-    print("features     -->  print menu for feature extraction.")
-    print("filter       -->  print menu for all filter.")
-    print("test         -->  run test code from /testing.")
-    print("config       -->  print configuration from definitions file.")
-    print("exit         -->  exit the system.")
+    print("database      -->  print menu for database creation.")
+    print("features      -->  print menu for feature extraction.")
+    print("filter        -->  print menu for all filter.")
+    print("predict [url] -->  predict url with final multi filter approach.")
+    print("test          -->  run test code from /testing.")
+    print("config        -->  print configuration from definitions file.")
+    print("exit          -->  exit the system.")
 
 
 def print_filter():

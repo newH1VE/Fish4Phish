@@ -5,42 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c2edc6-0214-4cb1-a069-4da99475d769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/fish4phish.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comp_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/comp_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comp_feature_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/comp_feature_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comp_feature_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/comp_feature_selection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/modules/mod_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/modules/mod_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/modules/mod_feature_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/modules/mod_feature_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/modules/mod_feature_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/modules/mod_feature_selection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/web_search/bingsearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/web_search/bingsearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/web_search/googlesearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/web_search/googlesearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/program_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/program_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/blacklist_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/blacklist_entry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/entry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/feature_entry_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/feature_entry_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/feature_entry_lexical.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/feature_entry_lexical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/letter_freqency.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/letter_freqency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/logcolor.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/logcolor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/redirect_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/redirect_entry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/signature_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/signature_entry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/enum_def/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/enum_def/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final_approach/predict_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_approach/predict_url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/feature_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper/feature_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/definitions/classes/signature_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/feature_ entry_signature.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_files/main_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_files/main_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_filter/main_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_files/main_filter/main_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_filter/main_lexical.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_files/main_filter/main_lexical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_filter/main_score_fusion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_files/main_filter/main_signature.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phishing_filter/blacklist/blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/blacklist/blacklist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phishing_filter/score_fusion/dt.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/score_fusion/dt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phishing_filter/score_fusion/fusion.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/score_fusion/fusion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +213,7 @@
       <workItem from="1618743159520" duration="598000" />
       <workItem from="1618774520881" duration="2203000" />
       <workItem from="1618837323809" duration="4375000" />
-      <workItem from="1618841720020" duration="223000" />
+      <workItem from="1618841720020" duration="2141000" />
     </task>
     <servers />
   </component>
