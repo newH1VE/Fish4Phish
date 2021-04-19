@@ -98,6 +98,26 @@ outsourced code of main.py to make the main file slightly smaller. The main file
 - main_content: main file for content based filter (phishing_filter/ml_content)
 - main_lexical: main file for lexical based filter (phishing_filter/ml_lexical)
 
+# Helper
+
+Helpers are all functions that can not be clearly assigned to one module or are remove from a module to make the code smaller.
+
+## Feature Helper
+
+All methods helping the feature extraction
+
+## Helper
+
+All methods helping other modules than feature extraction
+
+## Logger
+
+All methods to log function prints and typed commands.
+
+## Menu
+
+Contains all print statements for menus.
+
 # Phishing Filters
 
 This directory contains all files for the filters. 
