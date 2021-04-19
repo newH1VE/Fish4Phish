@@ -45,7 +45,7 @@ while EXIT == False:
         main_config.run()
         continue
 
-    # print configuration menu
+    # predict url with multi filter approach
     if prompt.startswith("predict"):
         url = prompt.split("predict")[1]
         predict_url(url)

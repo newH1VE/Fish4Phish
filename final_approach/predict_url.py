@@ -1,4 +1,8 @@
 
+# THIRD PARTY LIBARIES
+import pandas as pd
+
+# LOCAL LIBARIES
 from phishing_filter.blacklist import blacklist as bl
 from helper.feature_helper import get_url_components
 from config.program_config import INFO, ERROR, WARNING
@@ -38,7 +42,7 @@ def predict_url(url):
     sig_entry = pd.Dataframe(extract_features_from_signature(url, "PREDICT"))
     result_sig = sig_classifier.predict(sig_entry.drop(["Label"], axis=1), sig_entry["Label"])
 
-    score = {
+    scores = {
         "Score 1": [result_lex],
         "Score 2": [result_con],
         "Score 3": [result_sig]
