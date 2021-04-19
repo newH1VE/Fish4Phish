@@ -79,4 +79,44 @@ They define different actions of the logger. Three actions are implemented:
 2. Warning: [WARN]
 3. Error: [ERR]
 
+# Main Files
+
+outsourced code of main.py to make the main file slightly smaller. The main files call the workflow of the components.
+
+- main_config: main file for menu item **config**
+- main_databse: main file for menu item **database** (comp_database)
+- main_features: main file for menu items **feature** contain functions for feature extraction and selection (comp_feature_extraction, comp_feature_selection)
+
+## Main Files Filters
+
+- main_content: main file for content based filter (phishing_filter/ml_content)
+- main_lexical: main file for lexical based filter (phishing_filter/ml_lexical)
+
+# Phishing Filters
+
+This directory contains all files for the filters. 
+
+## Blacklist
+
+Implements all actions to update the blacklist or add as well as remove and check entries.
+
+## Lexical and Content Filter
+
+**ML_Lexical** and **ML_content** have the same structure:
+
+- files for each machine learning modell (Random Forest: rf.py, Extreme Gradient Boosting: xgb.py, K-Nearest Neighbor: knn.py, Logistic Regression: lr.py, Support Vector Machine: svm.py, Decision Tree: dt.py, Adaptive Boosting: ab.py)
+
+The structure for each modell is identical:
+
+1. train_model: train the modell by the passed function parameter data
+2. optimize: optimize model hyper parameters using randomized search
+3. print_scores: do cross validation for 5 splits and print produced scores
+4. transform_data: delete columns that don't contain features or labels (ID, URL, Final URL)
+5. save_last_score: save produced score to file in folder **saved_scores**
+6. load_last_score: load score from file in folder **saved_scores**
+7. save_model: save model to file in folder **saved_models**
+8. load_model: load model from file in folder **saved_models**
+9. predict_url: predict url by model
+
+
 
