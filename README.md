@@ -6,6 +6,16 @@ This project contains all code produced for my master thesis: Detection of Clone
 
 The code is splitted in seeveral parts:
 
+# Final Approach
+
+The most important directory. It contains the code to analyze a url using the multifilter approach evaluated in the master thesis. Classification of a url is done by:
+
+- blacklist to check if entry is still in blacklist
+- lexical filter with Random Forest
+- content filter with Random Forest
+- signature filter to check signature by Bing
+- score fusion to predict the final classification using a Decision Tree
+
 # components
 
 Components contain the workflow to be done for different taks.
@@ -32,9 +42,17 @@ This directory contains made configurations including the definitions of paths f
 
 # definitions
 
-This directory implements all needed classes and enums. Classes contain variables to save all features as well as the url and label for all filters.
+This directory implements all needed classes and enums. Classes contain variables to save all features as well as the url and label for all filters. Enums specify logging actions like informative, warning and error.
 
 ## classes
 
+all classes for blacklist, content filter, lexical filter, signature filter, letter frequencies, logging color and to save done redirects of website.
+
+## enums
+
+They define different actions of the logger. Three actions are implemented:
+1. Informative: [INFO]
+2. Warning: [WARN]
+3. Error: [ERR]
 
 
