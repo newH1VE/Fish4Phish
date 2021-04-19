@@ -23,12 +23,12 @@ def predict_url(url):
 
     # check for entry in blacklist
     domainname = "{}.{}".format(components[3], components[4])
-    domainname, not_after = bl.check_for_entry(domainname=domainname)
+    result_domain, not_after = bl.check_for_entry(domainname=domainname)
 
 
-    if result is not None:
+    if result_domain is not None:
         log(INFO, "{} is listed in the blacklist until: {}".format(domainname, not_after))
-        return 1
+        return
 
 
     # further check using all 3 filters and score fusion

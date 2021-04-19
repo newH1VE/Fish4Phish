@@ -114,7 +114,7 @@ def check_for_entry(domainname):
 
     if row:
         not_after = row[1]
-        return (domainname, not_after)
+        return domainname, not_after
 
-    return None
+    return None, None
 

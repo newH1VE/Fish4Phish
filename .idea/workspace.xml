@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04c2edc6-0214-4cb1-a069-4da99475d769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/definitions/classes/signature_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/definitions/classes/feature_ entry_signature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_approach/predict_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_approach/predict_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phishing_filter/blacklist/blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/blacklist/blacklist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +213,7 @@
       <workItem from="1618743159520" duration="598000" />
       <workItem from="1618774520881" duration="2203000" />
       <workItem from="1618837323809" duration="4375000" />
-      <workItem from="1618841720020" duration="2141000" />
+      <workItem from="1618841720020" duration="2779000" />
     </task>
     <servers />
   </component>
