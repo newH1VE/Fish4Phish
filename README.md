@@ -16,6 +16,31 @@ The most important directory. It contains the code to analyze a url using the mu
 - signature filter to check signature by Bing
 - score fusion to predict the final classification using a Decision Tree
 
+# Menu
+
+            +++ MENU FOR COMMANDS +++
+
+database      -->  print menu for database creation.
+features      -->  print menu for feature extraction.
+filter        -->  print menu for all filter.
+predict [url] -->  predict url with final multi filter approach using two Random Forests and Decision Tree for score fusion
+test          -->  run test code from /testing.
+config        -->  print configuration from definitions file.
+exit          -->  exit the system.
+
+Typ in the displayed command to go further in menu structure or predict a url with the final multi filter approach (98%) accuracy.
+
+##Example:
+
+Type in a command:
+>> predict https://github.com/newH1VE/Fish4Phish/edit/main/README.md
+
+or
+
+>> filter
+
+# Project Structure
+
 # components
 
 Components contain the workflow to be done for different taks.
