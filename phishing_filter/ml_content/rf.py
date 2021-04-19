@@ -258,7 +258,7 @@ def predict_url(url, proba=False):
 
         x_pred = x_pred[['Ratio Similarity', 'Ratio Description Sim', 'Number HREF', 'Number DIV', 'Number LI', 'Ratio Title Sim', 'Number Span', 'Number UL', 'Has Bond Status', 'Number Image', 'Ratio Copyright Sim', 'Number PhishyTokens', 'Number Extern Links', 'Number Button', 'Number Inputs', 'Number Paragr', 'Ratio Unique Links', 'Has Freq Domain Extern', 'Has Copyright', 'Has Button', 'Has Redirect', 'Has iFrame', 'Has Extern Content', 'Has Meta', 'Has Input', 'Number Option', 'Has Action', 'Number OL', 'Number TR', 'Has Hidden Element', 'Number Checkbox']]
         if proba:
-            y_pred = random_forest_pre_loaded.predict_proba(x_pred)
+            y_pred = random_forest_pre_loaded.predict_proba(x_pred)[1]
         else:
             y_pred = random_forest_pre_loaded.predict(x_pred)
 

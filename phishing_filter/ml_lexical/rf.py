@@ -254,7 +254,7 @@ def predict_url(url, proba=False):
 
         x_pred = x_pred[['Entropy', 'Ratio Netloc/URL', 'Length URL', 'Ratio Digit/Letter', 'Ratio Path/URL', 'Has HTTPS', 'Length Netloc', 'KL Divergence', 'Ratio Vowel/Consonant', 'Number Symbols', 'Number Dots', 'Number Tokens Netloc', 'Number Digits Path', 'Ratio Cap/NonCap', 'Number Dash', 'Number Dash Netloc', 'Has Token Netloc', 'Number Slash Path', 'Ratio Query/URL', 'Number Digits Netloc', 'Number Redirects', 'Number PhishyTokens Path', 'Has Digits Netloc', 'Number Query Parameters', 'Number Dots Netloc', 'Has Query', 'Number Equals', 'Number Semicolon', 'Number Ampersand', 'Cert Created Shortly', 'Number Stars']]
         if proba:
-            y_pred = random_forest_pre_loaded.predict_proba(x_pred)
+            y_pred = random_forest_pre_loaded.predict_proba(x_pred)[1]
         else:
             y_pred = random_forest_pre_loaded.predict(x_pred)
 

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="04c2edc6-0214-4cb1-a069-4da99475d769" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/final_approach/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final_approach/predict_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modules/mod_feature_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/modules/mod_feature_extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phishing_filter/ml_content/rf.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/ml_content/rf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phishing_filter/ml_lexical/rf.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/ml_lexical/rf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phishing_filter/score_fusion/dt.py" beforeDir="false" afterPath="$PROJECT_DIR$/phishing_filter/score_fusion/dt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/testcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/testcode.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1cqpoOPNnbRSMZcZaw8ZOSZGUiE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="credentialsType com.jetbrains.python.remote.PyCreateRemoteInterpreterDialog$PyCreateRemoteSdkForm" value="Web Deployment" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+    <option name="myShowVariablesByDefault" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/phishing_filter/single_filter" />
+      <recent name="$PROJECT_DIR$/phishing_filter/score_fusion/saved_scores" />
+      <recent name="$PROJECT_DIR$/phishing_filter/ml_content/saved_models" />
+      <recent name="$PROJECT_DIR$/helper" />
+      <recent name="$PROJECT_DIR$/phishing_filter/ml_content" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/phishing_filter/ml_lexical" />
+      <recent name="$PROJECT_DIR$/main_files/main_filter" />
+      <recent name="$PROJECT_DIR$/helper" />
+      <recent name="$PROJECT_DIR$/components/connection" />
+      <recent name="$PROJECT_DIR$/phishing_filter" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.SSH Dedicated">
+    <configuration name="SSH Dedicated" type="PythonConfigurationType" factoryName="Python">
+      <module name="Phishing Data" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@h2930121.stratoserver.net:40022/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SSH Main" type="PythonConfigurationType" factoryName="Python">
+      <module name="Phishing Data" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@newh1ve.de:40022/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Phishing Data" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.SSH Dedicated" />
+      <item itemvalue="Python.SSH Main" />
+      <item itemvalue="Python.main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04c2edc6-0214-4cb1-a069-4da99475d769" name="Default Changelist" comment="" />
+      <created>1591266151880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591266151880</updated>
+      <workItem from="1611494642140" duration="754000" />
+      <workItem from="1612435375910" duration="12336000" />
+      <workItem from="1612455663282" duration="20052000" />
+      <workItem from="1612618209180" duration="36397000" />
+      <workItem from="1612895475509" duration="19190000" />
+      <workItem from="1612995104509" duration="19637000" />
+      <workItem from="1613147110689" duration="24508000" />
+      <workItem from="1613302466829" duration="17102000" />
+      <workItem from="1613325246628" duration="9437000" />
+      <workItem from="1613401879784" duration="43000" />
+      <workItem from="1613401925817" duration="73000" />
+      <workItem from="1613402264248" duration="12249000" />
+      <workItem from="1613987153130" duration="7813000" />
+      <workItem from="1613999902542" duration="31086000" />
+      <workItem from="1614244110914" duration="25692000" />
+      <workItem from="1614528036139" duration="4456000" />
+      <workItem from="1614597164886" duration="18654000" />
+      <workItem from="1614765673497" duration="45220000" />
+      <workItem from="1615029637854" duration="18639000" />
+      <workItem from="1615069151983" duration="12463000" />
+      <workItem from="1615188111798" duration="4112000" />
+      <workItem from="1615318272536" duration="17081000" />
+      <workItem from="1615589801662" duration="84000" />
+      <workItem from="1615978923735" duration="7318000" />
+      <workItem from="1616267600731" duration="3348000" />
+      <workItem from="1616327545059" duration="1053000" />
+      <workItem from="1616342938319" duration="12434000" />
+      <workItem from="1616355416524" duration="70246000" />
+      <workItem from="1616716415492" duration="87297000" />
+      <workItem from="1617120379976" duration="12942000" />
+      <workItem from="1617269586317" duration="32777000" />
+      <workItem from="1617566849259" duration="40625000" />
+      <workItem from="1617717914784" duration="63380000" />
+      <workItem from="1617987444505" duration="3295000" />
+      <workItem from="1617992520757" duration="49909000" />
+      <workItem from="1618227522755" duration="33000" />
+      <workItem from="1618227570879" duration="79534000" />
+      <workItem from="1618676412968" duration="328000" />
+      <workItem from="1618739555078" duration="370000" />
+      <workItem from="1618743159520" duration="598000" />
+      <workItem from="1618774520881" duration="2203000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>747</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>748</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>723</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>724</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>725</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/comp_feature_extraction.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_feature_extraction.py</url>
+          <line>1243</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_feature_extraction.py</url>
+          <line>1240</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper/feature_helper.py</url>
+          <line>743</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_feature_selection.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_feature_selection.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_feature_selection.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/blacklist/blacklist.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testing/testcode.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/website_signature/signature_check.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/website_signature/signature_check.py</url>
+          <line>192</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/ml_lexical/xgb.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/ml_lexical/xgb.py</url>
+          <line>235</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/ml_lexical/xgb.py</url>
+          <line>230</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/ml_lexical/xgb.py</url>
+          <line>227</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/components/modules/mod_database.py</url>
+          <line>440</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/phishing_filter/ml_content/rf.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="url" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Fish4Phish$main.coverage" NAME="main Coverage Results" MODIFIED="1618518163769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Fish4Phish$testcode.coverage" NAME="testcode Coverage Results" MODIFIED="1617570737477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/Fish4Phish$SSH_Main.coverage" NAME="SSH Main Coverage Results" MODIFIED="1618415114359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Fish4Phish$SSH_Dedicated.coverage" NAME="SSH Dedicated Coverage Results" MODIFIED="1618676486676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

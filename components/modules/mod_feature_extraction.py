@@ -20,7 +20,7 @@ from validators import url as validate_url
 # LOCAL LIBARIES
 from components.modules.mod_database import get_phishy_login_brand_list, get_TLD_list
 from config.program_config import INFO, ERROR, WARNING, LEXICAL_FEATURE_LIST_COLUMN_NAMES, \
-    CONTENT_FEATURE_LIST_COLUMN_NAMES
+    CONTENT_FEATURE_LIST_COLUMN_NAMES, SIGNATURE_FEATURE_LIST_COLUMN_NAMES
 from definitions.classes.feature_entry_content import FeatureEntryContent
 from definitions.classes.feature_entry_lexical import FeatureEntryLexical
 from definitions.classes.redirect_entry import RedirectEntry
@@ -1250,15 +1250,38 @@ def extract_features_from_signature(url, label):
         for i in range(len(common_terms)):
             terms[i] = common_terms[i]
 
-        entry = SignatureEntry(url=url, final_url=final_url, label=label, cert_subject=cert_subject, term1=terms[0][0],
-                               term2=terms[1][0],
-                               term3=terms[2][0], term4=terms[3][0], term5=terms[4][0], ent1=ents[0][0],
-                               ent2=ents[1][0], ent3=ents[2][0],
-                               ent4=ents[3][0], ent5=ents[4][0])
 
-        log(action_logging_enum=INFO, logging_text="Signature extracted from {}.".format(url))
-        print(cert_subject, ents, terms)
-        return entry
+        if not label == "PREDICT":
+            entry = SignatureEntry(url=url, final_url=final_url, label=label, cert_subject=cert_subject, term1=terms[0][0],
+                                   term2=terms[1][0], term3=terms[2][0], term4=terms[3][0], term5=terms[4][0],
+                                   ent1=ents[0][0], ent2=ents[1][0], ent3=ents[2][0], ent4=ents[3][0], ent5=ents[4][0])
+
+            log(action_logging_enum=INFO, logging_text="Signature extracted from {}.".format(url))
+            return entry
+
+        else:
+            data = {
+                "ID": [0],
+                "Term1": [terms[0][0]],
+                "Term2": [terms[1][0]],
+                "Term3": [terms[2][0]],
+                "Term4": [terms[3][0]],
+                "Term5": [terms[4][0]],
+                "Entity1": [ents[0][0]],
+                "Entity2": [ents[1][0]],
+                "Entity3": [ents[2][0]],
+                "Entity4": [ents[3][0]],
+                "Entity5": [ents[4][0]],
+                "Label": [label],
+                "URL": [url_orig],
+                "Final URL": [url]
+            }
+
+            columns = list(SIGNATURE_FEATURE_LIST_COLUMN_NAMES)
+            entry = pd.DataFrame(data, columns=columns)
+
+            log(action_logging_enum=INFO, logging_text="Signature extracted from {}.".format(url))
+            return entry
 
     except Exception as e:
         log(action_logging_enum=ERROR, logging_text="Could not extract signature from {}. [{}]".format(url, str(e)))

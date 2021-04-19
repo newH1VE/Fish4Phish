@@ -157,6 +157,12 @@ def load_model():
 
 # predict value with model
 def predict(scores):
+    """
+    'Score 1': Score Lexical Filter,
+    'Score 2': Score Content Filter,
+    'Score 3': Score Signature Filter,
+    """
+
     decision_tree = load_model()
     if isinstance(scores, list):
         list_1 = []
