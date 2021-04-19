@@ -1,5 +1,5 @@
-# Fish4Phish
+![alt text](https://github.com/newH1VE/Fish4Phish/blob/main/icon.png?raw=true)
 
-![alt text](https://github.com/newH1VE/Fish4Phish/icon.png?raw=true)
+# Fish4Phish
 
  Project code for my master thesis. The project contains a new approach for the detection of so called clone phishing attacks.
