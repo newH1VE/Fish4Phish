@@ -2,4 +2,8 @@
 
 # Fish4Phish
 
- Project code for my master thesis. The project contains a new approach for the detection of so called clone phishing attacks.
+This project contains all code produced for my master thesis: Detection of Clone-Phishing using Machine Learning. 
+
+The code is splitted in seeveral parts:
+
+# components
