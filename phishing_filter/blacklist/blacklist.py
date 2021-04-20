@@ -12,14 +12,8 @@ from helper.logger import log
 from config import configuration as conf
 
 
-"""
-This file contains all actions for blacklist
-"""
-
-
 last_updated = None
 
-# create connections to database file -> if not existent create new
 def create_connection():
     global last_updated
 
@@ -30,6 +24,13 @@ def create_connection():
         log(ERROR, "Database connection could not been established.")
         log(ERROR, str(e))
         return None
+
+    c = conn.cursor()
+    c.execute(''' SELECT name FROM sqlite_master WHERE type='table' AND name='blacklist'; ''')
+    conn.commit()
+
+    if c.fetchone() is None:
+        create_table(conn)
 
     today = date.today().strftime("%d/%m/%Y")
     if last_updated is None:
@@ -56,7 +57,7 @@ def create_connection():
 
     return conn
 
-# create table blacklist
+
 def create_table(conn):
     c = conn.cursor()
     c.execute('''CREATE TABLE blacklist(domainname text, not_after text)''')
@@ -64,7 +65,7 @@ def create_table(conn):
     log(INFO, "Table 'blacklist' created in sqlite database.")
     return
 
-# add entry to blacklist
+
 def add_entry(entry: BlacklistEntry):
     conn = create_connection()
     c = conn.cursor()
@@ -90,7 +91,7 @@ def add_entry(entry: BlacklistEntry):
 
     return
 
-# check for entries who's not after date is passed and delete them
+
 def update_db(conn, last_updated_date, today):
     delta = today - last_updated_date
 
@@ -104,7 +105,7 @@ def update_db(conn, last_updated_date, today):
 
     return
 
-# check if blacklist contains domainname
+
 def check_for_entry(domainname):
     conn = create_connection()
     c = conn.cursor()
@@ -114,7 +115,6 @@ def check_for_entry(domainname):
 
     if row:
         not_after = row[1]
-        return domainname, not_after
+        return [domainname, not_after]
 
-    return None, None
-
+    return None

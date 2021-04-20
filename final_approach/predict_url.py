@@ -26,19 +26,19 @@ def predict_url(url):
 
     # check for entry in blacklist
     domainname = "{}.{}".format(components[3], components[4])
-    result_domain, not_after = bl.check_for_entry(domainname=domainname)
+    result = bl.check_for_entry(domainname=domainname)
 
 
-    if result_domain is not None:
-        log(INFO, "{} is listed in the blacklist until: {}".format(domainname, not_after))
+    if result is not None:
+        log(INFO, "{} is listed in the blacklist until: {}".format(result[0], result[1]))
         return
 
 
     # further check using all 3 filters and score fusion
-    result_lex = lex_rf.predict_url(url, True)
-    result_con = con_rf.predict_url(url, True)
+    result_lex = lex_rf.predict_url(url, True)[0][1]
+    result_con = con_rf.predict_url(url, True)[0][1]
     sig_classifier = SignaturClassifier(num_res=10)
-    sig_entry = pd.Dataframe(extract_features_from_signature(url, "PREDICT"))
+    sig_entry = extract_features_from_signature(url, "PREDICT")
     result_sig = sig_classifier.predict(sig_entry.drop(["Label"], axis=1), sig_entry["Label"])
 
     scores = {
