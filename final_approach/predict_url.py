@@ -1,4 +1,3 @@
-
 # THIRD PARTY LIBARIES
 import pandas as pd
 
@@ -66,8 +65,3 @@ def predict_url(url):
 
 
     log("INFO", "Final classification: {}".format(classif_str))
-
-
-
-
-
