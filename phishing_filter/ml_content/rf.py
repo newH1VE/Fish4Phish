@@ -62,7 +62,7 @@ def train_model(do_optimize=False, data=pd.DataFrame()):
     #                                    max_features='sqrt', max_depth=17
 
     y_train = train['Label']
-    x_train = train.drop(['Label'], axis=1).values
+    x_train = train[['Ratio Similarity', 'Ratio Description Sim', 'Number HREF', 'Number DIV', 'Number LI', 'Ratio Title Sim', 'Number Span', 'Number UL', 'Has Bond Status', 'Number Image', 'Ratio Copyright Sim', 'Number PhishyTokens', 'Number Extern Links', 'Number Button', 'Number Inputs', 'Number Paragr', 'Ratio Unique Links', 'Has Freq Domain Extern', 'Has Copyright', 'Has Button', 'Has Redirect', 'Has iFrame', 'Has Extern Content', 'Has Meta', 'Has Input', 'Number Option', 'Has Action', 'Number OL', 'Number TR', 'Has Hidden Element', 'Number Checkbox']]
     random_forest.fit(x_train, y_train)
     save_model(random_forest=random_forest)
     log_module_complete(MODULE_NAME=MODEL_NAME)
@@ -258,11 +258,11 @@ def predict_url(url, proba=False):
 
         x_pred = x_pred[['Ratio Similarity', 'Ratio Description Sim', 'Number HREF', 'Number DIV', 'Number LI', 'Ratio Title Sim', 'Number Span', 'Number UL', 'Has Bond Status', 'Number Image', 'Ratio Copyright Sim', 'Number PhishyTokens', 'Number Extern Links', 'Number Button', 'Number Inputs', 'Number Paragr', 'Ratio Unique Links', 'Has Freq Domain Extern', 'Has Copyright', 'Has Button', 'Has Redirect', 'Has iFrame', 'Has Extern Content', 'Has Meta', 'Has Input', 'Number Option', 'Has Action', 'Number OL', 'Number TR', 'Has Hidden Element', 'Number Checkbox']]
         if proba:
-            y_pred = random_forest_pre_loaded.predict_proba(x_pred)[1]
+            y_pred = random_forest_pre_loaded.predict_proba(x_pred)
         else:
             y_pred = random_forest_pre_loaded.predict(x_pred)
 
-        return y_pred.tolist()
+        return y_pred
     except Exception as e:
         exc_type, exc_obj, tb = sys.exc_info()
         f = tb.tb_frame

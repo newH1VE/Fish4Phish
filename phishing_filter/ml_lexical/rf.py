@@ -34,7 +34,7 @@ def train_model(do_optimize=False, data=pd.DataFrame()):
     train, test = train_test_split(data, test_size=0.2)
     pd.set_option('display.max_columns', None)
     y = data['Label']
-    x = data.drop(['Label'], axis=1).values
+    x = data[['Entropy', 'Ratio Netloc/URL', 'Length URL', 'Ratio Digit/Letter', 'Ratio Path/URL', 'Has HTTPS', 'Length Netloc', 'KL Divergence', 'Ratio Vowel/Consonant', 'Number Symbols', 'Number Dots', 'Number Tokens Netloc', 'Number Digits Path', 'Ratio Cap/NonCap', 'Number Dash', 'Number Dash Netloc', 'Has Token Netloc', 'Number Slash Path', 'Ratio Query/URL', 'Number Digits Netloc', 'Number Redirects', 'Number PhishyTokens Path', 'Has Digits Netloc', 'Number Query Parameters', 'Number Dots Netloc', 'Has Query', 'Number Equals', 'Number Semicolon', 'Number Ampersand', 'Cert Created Shortly', 'Number Stars']]
     log(action_logging_enum=INFO, logging_text="[RANDOM FOREST] Data ready for use.")
 
     if do_optimize == True:
@@ -254,11 +254,11 @@ def predict_url(url, proba=False):
 
         x_pred = x_pred[['Entropy', 'Ratio Netloc/URL', 'Length URL', 'Ratio Digit/Letter', 'Ratio Path/URL', 'Has HTTPS', 'Length Netloc', 'KL Divergence', 'Ratio Vowel/Consonant', 'Number Symbols', 'Number Dots', 'Number Tokens Netloc', 'Number Digits Path', 'Ratio Cap/NonCap', 'Number Dash', 'Number Dash Netloc', 'Has Token Netloc', 'Number Slash Path', 'Ratio Query/URL', 'Number Digits Netloc', 'Number Redirects', 'Number PhishyTokens Path', 'Has Digits Netloc', 'Number Query Parameters', 'Number Dots Netloc', 'Has Query', 'Number Equals', 'Number Semicolon', 'Number Ampersand', 'Cert Created Shortly', 'Number Stars']]
         if proba:
-            y_pred = random_forest_pre_loaded.predict_proba(x_pred)[1]
+            y_pred = random_forest_pre_loaded.predict_proba(x_pred)
         else:
             y_pred = random_forest_pre_loaded.predict(x_pred)
 
-        return y_pred.tolist()
+        return y_pred
 
     except Exception as e:
         exc_type, exc_obj, tb = sys.exc_info()
